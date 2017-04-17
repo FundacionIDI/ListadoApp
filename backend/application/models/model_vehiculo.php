@@ -7,7 +7,7 @@ class model_vehiculo extends CI_Model {
 		$Vehiculos=array();
 
 		$this->db->select('*');
-		$this->db->order_by('modelo ASC');
+		$this->db->order_by('marca ASC');
 		$this->db->from('vehiculo');
 		$retorno=$this->db->get();
 		$Vehiculos=$retorno->result_array();

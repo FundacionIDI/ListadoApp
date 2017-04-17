@@ -13,7 +13,7 @@ class controller_vehiculo extends CI_Controller {
 	{
 		$this->load->model("model_vehiculo");
 		$vehiculos=$this->model_vehiculo->listar();
-        echo json_encode(array('data' => $vehiculos));
+        echo json_encode(array(array('data' => $vehiculos)));
 	}
 
 	public function add()
