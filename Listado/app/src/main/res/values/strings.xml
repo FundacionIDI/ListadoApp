@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ListadoApp</string>
+
+    <string-array name="mantenimiento_array">
+        <item>Correctivo</item>
+        <item>Preventivo</item>
+        <item>Predictivo</item>
+    </string-array>
+</resources>
