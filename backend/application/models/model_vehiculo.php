@@ -35,6 +35,50 @@ class model_vehiculo extends CI_Model {
 	 $this->db->delete('vehiculo');
     }
 
+    public function CanyPrePorMarca($marca){
+        $Vehiculos=array();
+        $this->db->select('COUNT(*) as TOTAL, AVG(vehiculo.precio) as Promedio');
+        $this->db->from('vehiculo');
+        $this->db->where('marca',$marca);
+        $retorno=$this->db->get();
+        $Vehiculos=$retorno->result_array();
+
+        return $Vehiculos;
+    }
+
+    public function CanyPrePorTipo($tipo){
+        $Vehiculos=array();
+        $this->db->select('COUNT(*) as TOTAL, AVG(vehiculo.precio) as Promedio');
+        $this->db->from('vehiculo');
+        $this->db->where('tipo',$tipo);
+        $retorno=$this->db->get();
+        $Vehiculos=$retorno->result_array();
+
+        return $Vehiculos;
+    }
+
+    public function cargarTipos(){
+        $marcas=array();
+        $this->db->distinct();
+        $this->db->select('vehiculo.tipo');
+        $this->db->from('vehiculo');
+        $retorno=$this->db->get();
+        $marcas=$retorno->result_array();
+
+        return $marcas;
+    }
+
+    public function cargarMarcas(){
+        $marcas=array();
+        $this->db->distinct();
+        $this->db->select('vehiculo.marca');
+        $this->db->from('vehiculo');
+        $retorno=$this->db->get();
+        $marcas=$retorno->result_array();
+
+        return $marcas;
+    }
+
 	public function guardar($modelo, $marca, $color, $placa, $precio, $ano, $tipo)
 	{
 		$retorno=false;
